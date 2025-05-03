@@ -1,3 +1,4 @@
+
 const userModel = require('../models/usermodels');
 const bcrypt = require('bcryptjs');
 class User {
