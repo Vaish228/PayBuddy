@@ -1,4 +1,4 @@
-const otpModel = require('../models/otpModel');
+const otpModel = require('../models/otpmodels');
 
 class otpService {
     async genOtp(email, reason) {

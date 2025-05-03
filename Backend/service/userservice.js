@@ -1,7 +1,7 @@
 
 const userModel = require('../models/usermodels');
 const bcrypt = require('bcryptjs');
-class User {
+class userService {
     async register(email, password) {
         const salt = await bcrypt.genSalt(12);
         const hashedPassword = await bcrypt.hash(password, salt);
@@ -32,3 +32,6 @@ class User {
 
   
 }
+
+const usersService = new userService();
+module.exports = usersService;

@@ -6,13 +6,13 @@ exports.registerUser = async function (req, res) {
     try {
         const payload = req.body;
         const user = await userService.register(payload.email, payload.password);
-        res.statuc(201).json({
+        res.status(201).json({
             status: true,
             message: "User registered successfully"
         })
     }
     catch (error) {
-        res.statuc(400).json({
+        res.status(400).json({
             status: false,
             message: error.message
         })
