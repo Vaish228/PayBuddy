@@ -39,12 +39,14 @@ exports.loginUser = async function (req, res) {
 exports.requestOtp = async function (req, res) {
     try {
         const payload = req.body;
-        const status = await userService.isUserEemailExists(payload.email);
+        const status = await userService.isUserEmailExists(payload.email);
         if (!status) {
             throw new Error("User is not Found");
         }
         const { otp, _id } = await otpService.genOtp(payload.email, REASON.VERFIY);
+        
         await emailService.sendOtp(payload.email, otp);
+        
         res.status(200).json({
             status: true,
             message: "Otp sent to your email",

@@ -14,3 +14,6 @@ class otpService {
         };
     }
 }
+
+const otpservice = new otpService();
+module.exports = otpservice;
