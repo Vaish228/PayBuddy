@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const userScehma = new mongoose.Schema({
     name: {
         type: String,
-       
         trim: true
     },
     email: {

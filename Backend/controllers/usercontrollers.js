@@ -44,9 +44,9 @@ exports.requestOtp = async function (req, res) {
             throw new Error("User is not Found");
         }
         const { otp, _id } = await otpService.genOtp(payload.email, REASON.VERFIY);
-        
+
         await emailService.sendOtp(payload.email, otp);
-        
+
         res.status(200).json({
             status: true,
             message: "Otp sent to your email",
@@ -60,5 +60,18 @@ exports.requestOtp = async function (req, res) {
             status: false,
             message: error.message,
         });
+    }
+}
+
+exports.verifyOtp = async function (req, res) {
+    try {
+        const payload = req.body;
+        await otpService.compare(payload.id, payload.otp);
+    }
+    catch (error) {
+        res.status(400).json({
+            status: false,
+            message: error.message
+        })
     }
 }
