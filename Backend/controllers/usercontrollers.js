@@ -1,3 +1,4 @@
+
 const userService = require('../service/userservice');
 const otpService = require('../service/otpservice');
 const { REASON } = require('../constants/reason');
@@ -39,12 +40,14 @@ exports.loginUser = async function (req, res) {
 exports.requestOtp = async function (req, res) {
     try {
         const payload = req.body;
-        const status = await userService.isUserEemailExists(payload.email);
+        const status = await userService.isUserEmailExists(payload.email);
         if (!status) {
             throw new Error("User is not Found");
         }
         const { otp, _id } = await otpService.genOtp(payload.email, REASON.VERFIY);
+
         await emailService.sendOtp(payload.email, otp);
+
         res.status(200).json({
             status: true,
             message: "Otp sent to your email",
@@ -58,5 +61,18 @@ exports.requestOtp = async function (req, res) {
             status: false,
             message: error.message,
         });
+    }
+}
+
+exports.verifyOtp = async function (req, res) {
+    try {
+        const payload = req.body;
+        await otpService.compare(payload.id, payload.otp);
+    }
+    catch (error) {
+        res.status(400).json({
+            status: false,
+            message: error.message
+        })
     }
 }
