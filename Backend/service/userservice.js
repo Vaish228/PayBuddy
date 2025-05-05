@@ -11,6 +11,7 @@ class userService {
         }
         await userModel.create(obj);
     }
+
     async isUserEmailExists(email) {
         const user = await userModel.findOne({ email });
         const result = {
@@ -18,6 +19,26 @@ class userService {
             data: user
         }
         return result;
+    }
+
+    async updateUser(obj) {
+        const id = obj._id;
+        const existingUser = await userModel.findById(id);
+        if (!existingUser) {
+            throw new Error("User not found");
+        }
+        existingUser.name = obj.name;
+        existingUser.details = obj.details;
+        await existingUser.save();
+    }
+
+    async getAllUsers(){
+        const users = await userModel.find();
+        return users;
+    }
+
+    async deleteById(id){
+        return await userModel.deleteOne({_id: id});
     }
     async login(email, password) {
         const result = await this.isUserEmailExists(email);
@@ -29,6 +50,7 @@ class userService {
             throw new Error("Password is incorrect, please try again");
         }
     }
+
     async updatePassword(id, password) {
         const user = await userModel.findById(id);
         if (!user) {
