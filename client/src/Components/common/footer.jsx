@@ -3,7 +3,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/f
 
 const Footer = () => {
     return (
-       <footer className ="bg-black text-white p-6 mt-10">
+       <footer className ="bg-emerald-400 text-white p-6 mt-10">
         <div className = "max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
             <p className = "text-sm mb-4 md:mb-0">
                 &copy; {new Date().getFullYear()} PayBuddy. All rights reserved.
