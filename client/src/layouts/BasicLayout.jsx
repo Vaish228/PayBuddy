@@ -1,9 +1,14 @@
 import React from "react";
 import Header from "../components/common/Header";
-
-function BasicLayout(){
+import { Outlet } from "react-router-dom";
+import Footer from "../components/common/Footer";
+function BasicLayout() {
     return (
-        <Header/>
+        <div>
+            <Header />
+            
+            <Footer />
+        </div>
     )
 }
 
