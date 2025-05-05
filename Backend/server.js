@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 })
 app.use('/users', userRouter);
 app.use('/groups', groupRouter);
-app.use('/expense', expenseRouter);
+app.use('/expenses', expenseRouter);
 
 
 app.listen(PORT, () => {
