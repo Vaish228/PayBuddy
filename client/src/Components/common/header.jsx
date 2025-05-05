@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className="bg-emerald-400 text-white shadow-md">
+    <header className="bg-teal-500 text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between">
         <div className="text-2xl font-bold mb-2 sm:mb-0">
           💸 PayBuddy
