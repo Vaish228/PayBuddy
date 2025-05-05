@@ -29,8 +29,18 @@ class userService {
             throw new Error("Password is incorrect, please try again");
         }
     }
+    async updatePassword(id, password) {
+        const user = await userModel.findById(id);
+        if (!user) {
+            throw new Error("User not found");
+        }
+        const salt = await bcrypt.genSalt(12);
+        const hashedPassword = await bcrypt.hash(password, salt);
+        user.password = hashedPassword;
+        await user.save();
 
-  
+    }
+
 }
 
 const usersService = new userService();
