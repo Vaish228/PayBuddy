@@ -6,3 +6,5 @@ function BasicLayout(){
         <Header/>
     )
 }
+
+export default BasicLayout;
