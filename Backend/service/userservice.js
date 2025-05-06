@@ -28,7 +28,9 @@ class userService {
             throw new Error("User not found");
         }
         existingUser.name = obj.name;
-        existingUser.details = obj.details;
+        existingUser.email = obj.email;
+        existingUser.groups = obj.groups;
+        existingUser.balance = obj.balance;
         await existingUser.save();
     }
 
