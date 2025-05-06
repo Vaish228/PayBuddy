@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const connectDB = require('./config/db.js');
 const groupRouter = require('./routers/grouprouters.js');
 const userRouter = require('./routers/userrouters.js');
+
 const expenseRouter = require('./routers/expenserouters.js');
 
 dotenv.config();
@@ -23,7 +24,8 @@ app.get('/', (req, res) => {
 })
 app.use('/users', userRouter);
 app.use('/groups', groupRouter);
-app.use('/expense', expenseRouter);
+app.use('/expenses', expenseRouter);
+
 
 
 app.listen(PORT, () => {
