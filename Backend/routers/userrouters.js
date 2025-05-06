@@ -2,7 +2,7 @@ const express = require('express');
 
 
 const { registerUser, loginUser, requestOtp, verifyOtp, requestRestPassword, resetPassword } = require('../controllers/usercontrollers');
-const {updateUser, getAllUsers, deleteUser} = require('../controllers/usercontrollers');
+const {updateUser, getAllUsers, deleteUser} = require('../controllers/crudusercontrollers');
 
 
 const router = express.Router();
