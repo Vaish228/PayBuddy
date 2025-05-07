@@ -107,7 +107,7 @@ const About = () => {
         </h2>
         <div className="text-gray-600 space-y-8 text-lg leading-relaxed fade-in-up">
           <p>
-            At Splitkaro, our vision is to create a world where social spending
+            At PayBuddy, our vision is to create a world where social spending
             is fair and seamless, regardless of how people choose to pay.
           </p>
           <p>
@@ -116,7 +116,7 @@ const About = () => {
             and allows people to settle debts on the go.
           </p>
           <p>
-            With Splitkaro, our hope is to empower people to spend time with
+            With PayBuddy, our hope is to empower people to spend time with
             their loved ones without worrying about the financial logistics.
           </p>
         </div>
