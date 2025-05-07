@@ -20,6 +20,16 @@ export default function Header() {
             Home
           </NavLink>
           <NavLink
+            to="/Features"
+            className={({ isActive }) =>
+              isActive
+                ? "text-yellow-300 font-semibold"
+                : "hover:text-yellow-300 transition duration-300"
+            }
+          >
+            Features
+          </NavLink>
+          <NavLink
             to="/about"
             className={({ isActive }) =>
               isActive
